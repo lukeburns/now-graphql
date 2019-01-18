@@ -1,0 +1,21 @@
+{
+  "name": "now-graphql",
+  "version": "0.2.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukeburns/now-graphql.git"
+  },
+  "author": "Luke Burns",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lukeburns/now-graphql/issues"
+  },
+  "homepage": "https://github.com/lukeburns/now-graphql#readme",
+  "dependencies": {
+    "@now/build-utils": "^0.4.31",
+    "@now/node": "^0.4.27",
+    "fs-extra": "^7.0.1"
+  }
+}
