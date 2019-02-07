@@ -6,9 +6,12 @@ module.exports = {
   `,
 
   resolvers: {
-    hello: () => `hello world`
+    Query: {
+      hello: () => `hello world`
+    }
   },
 
   introspection: true,
-  playground: { settings: { 'request.credentials': 'same-origin' } }
+  playground: true,
+  path: '/'
 }
