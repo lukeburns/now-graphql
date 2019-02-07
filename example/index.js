@@ -9,8 +9,6 @@ module.exports = {
     hello: () => `hello world`
   },
 
-  config: {
-    introspection: true,
-    playground: { settings: { 'request.credentials': 'same-origin' } }
-  }
+  introspection: true,
+  playground: { settings: { 'request.credentials': 'same-origin' } }
 }

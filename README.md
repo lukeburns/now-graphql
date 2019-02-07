@@ -16,13 +16,11 @@ module.exports = {
   resolvers: {
     hello: () => `hello world`
   },
-  config: {
-    // any other apollo-server config
-  }
+  // any other apollo-server config
 }
 ```
 
-where `typeDefs` is a string or a GraphQLSchema object, then create a `now.json` file
+where `typeDefs` is a string that decscribes your schema, then create a `now.json` file
 
 ```json
 {
@@ -34,3 +32,5 @@ where `typeDefs` is a string or a GraphQLSchema object, then create a `now.json`
 ```
 
 then run `now` to deploy with [now](https://now.sh/).
+
+Since you can use any [apollo-server](https://github.com/apollographql/apollo-server) config, feel free to use `schema` or anything else you might do with that.
