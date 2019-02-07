@@ -8,18 +8,21 @@ create an `index.js` file
 
 ```js
 module.exports = {
-  schema: `
+  typeDefs: `
     type Query {
       hello: String
     }
   `,
   resolvers: {
     hello: () => `hello world`
+  },
+  config: {
+    // any other apollo-server config
   }
 }
 ```
 
-where `schema` is a string or a GraphQLSchema object, then create a `now.json` file
+where `typeDefs` is a string or a GraphQLSchema object, then create a `now.json` file
 
 ```json
 {
