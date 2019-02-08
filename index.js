@@ -9,14 +9,14 @@ module.exports = {
     console.log(`adding graphql dependencies to package.json`)
     const pkg = files['package.json'] ? JSON.parse(files['package.json'].data.toString()) : { dependencies: {} }
     const json = JSON.parse(await fs.readFile(path.join(__dirname, 'server/package.json'), 'utf8'))
-    Object.keys(json.dependencies).forEach(dep => pkg.dependencies[dep] = json.dependencies[dep])
+    Object.keys(json.dependencies).forEach(dep => { pkg.dependencies[dep] = json.dependencies[dep] })
     files['package.json'] = new FileBlob({ data: JSON.stringify(pkg) })
 
     console.log(`setting graphql entrypoint`)
     files['_entrypoint.js'] = files[entrypoint]
     files[entrypoint] = new FileFsRef({ fsPath: path.join(__dirname, 'server/index.js') })
 
-    return await build({ entrypoint, files, workPath })
+    return build({ entrypoint, files, workPath })
   },
   prepareCache,
   config

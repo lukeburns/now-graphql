@@ -1,10 +1,11 @@
-const graphqlHTTP = require('express-graphql')
-const { buildSchema } = require('graphql')
-let { schema, resolvers, graphiql=true } = require('./_entrypoint')
+const express = require('express')
+const { ApolloServer } = require('apollo-server-express')
 
-const rootValue = resolvers
-if (typeof schema === 'string') {
-  schema = buildSchema(schema)
-}
+let config = require('./_entrypoint')
 
-module.exports = graphqlHTTP({ schema, rootValue, graphiql })
+const server = new ApolloServer(config)
+
+const app = express()
+server.applyMiddleware({ app })
+
+module.exports = app
