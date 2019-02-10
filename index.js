@@ -7,7 +7,14 @@ const { build, prepareCache, config } = require('@now/node')
 module.exports = {
   build: async ({ files, entrypoint, workPath }) => {
     console.log(`adding graphql dependencies to package.json`)
-    const pkg = files['package.json'] ? JSON.parse(files['package.json'].data.toString()) : { dependencies: {} }
+
+    let pkg = { dependencies: {} }
+    if (files['package.json']) {
+      const stream = files['package.json'].toStream()
+      const { data } = await FileBlob.fromStream({ stream })
+      pkg = JSON.parse(data.toString())
+    }
+
     const json = JSON.parse(await fs.readFile(path.join(__dirname, 'server/package.json'), 'utf8'))
     Object.keys(json.dependencies).forEach(dep => { pkg.dependencies[dep] = json.dependencies[dep] })
     files['package.json'] = new FileBlob({ data: JSON.stringify(pkg) })
