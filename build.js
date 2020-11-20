@@ -15,7 +15,7 @@ async function main () {
   }
   const typedefs = mergeTypeDefs(loadFilesSync(`${__dirname}/graphql/**/*.graphql`, { recursive: true }))
   out += `\nexport const resolvers = mergeResolvers([${ids.join(', ')}])\n\n`
-  out += 'export const typeDefs = `' + graphqlString(typedefs) + '`\n'
+  out += 'export const typeDefs = `\n' + graphqlString(typedefs) + '`\n'
   await fs.writeFile(`${__dirname}/schema.js`, out)
 }
 main()
