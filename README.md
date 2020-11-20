@@ -4,7 +4,8 @@ This used to be a [vercel builder](https://zeit.co/docs/v2/deployments/builders/
 
 ## usage
 
-Edit files in `src/` to include your resolvers (.js) and typedefs (.graphql)
+Put your files in `src/` to include your resolvers (.js) and typedefs (.graphql). They can go in sub-directories or however you want to organize them.
 
-* Run a local dev-server with `npm start`
-* Deploy with `npm run deploy` to send it to vercel.
+* `npm i` - Install deopendencies and tools for local developm,ent
+* `npm start` - Run a local dev-server with 
+* `npm run deploy` - Deploy the app to vercel.
