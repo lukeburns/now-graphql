@@ -1,41 +1,13 @@
 # now-graphql
 
-a [now builder](https://zeit.co/docs/v2/deployments/builders/overview/) for graphql services
+This used to be a [vercel builder](https://zeit.co/docs/v2/deployments/builders/overview/) for graphql services. There have been some changes to how that works, so I moved to another format for my own projects, so this serves as a simple demo-project. 
+
+You can see it deployed [here](https://now-graphql.dkonsumer.vercel.app).
 
 ## usage
 
-create an `index.js` file
+Put your files in `graphql/` to include your resolvers (.js) and typedefs (.graphql). They can go in sub-directories or however you want to organize them.
 
-```js
-module.exports = {
-  typeDefs: `
-    type Query {
-      hello: String
-    }
-  `,
-  resolvers: {
-    hello: () => `hello world`
-  }
-  // any other apollo-server config
-}
-```
-
-where `typeDefs` is a string that decscribes your schema, then create a `now.json` file
-
-```json
-{
-  "version": 2,
-  "builds": [
-    { "src": "index.js", "use": "now-graphql" }
-  ],
-  "routes": [
-    { "src": "/graphql", "dest": "index.js" }
-  ]
-}
-```
-
-then run `now` to deploy with [now](https://now.sh/).
-
-Since you can use any [apollo-server](https://www.apollographql.com/docs/apollo-server/api/apollo-server.html) config, feel free to use `schema` or anything else you might do with that.
-
-The default path is `/graphql`, but you can change that by adding `path` to your server, and updating your route in `now.json` to point to it.
+* `npm i` - Install deopendencies and tools for local development
+* `npm start` - Run a local dev-server
+* `npm run deploy` - Deploy the app to vercel

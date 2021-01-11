@@ -1,21 +1,33 @@
 {
   "name": "now-graphql",
-  "version": "0.3.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.5.0",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lukeburns/now-graphql.git"
   },
-  "author": "Luke Burns",
+  "author": "David Konsumer",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/lukeburns/now-graphql/issues"
   },
   "homepage": "https://github.com/lukeburns/now-graphql#readme",
   "dependencies": {
-    "@now/build-utils": "^0.4.31",
-    "@now/node": "^0.4.27",
-    "fs-extra": "^7.0.1"
+    "@graphql-tools/merge": "^6.2.5",
+    "apollo-server-micro": "^2.19.0",
+    "graphql": "^15.4.0"
+  },
+  "scripts": {
+    "start": "vercel dev",
+    "deploy": "vercel",
+    "build": "node -r esm build.js"
+  },
+  "devDependencies": {
+    "@graphql-tools/load-files": "^6.2.4",
+    "esm": "^3.2.25",
+    "glob": "^7.1.6",
+    "glob-promise": "^3.4.0",
+    "random-id": "^1.0.4",
+    "vercel": "^20.1.4"
   }
 }
